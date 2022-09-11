@@ -1,0 +1,64 @@
+!! Colorscheme
+
+! special 
+*.foreground: #d3d0c8
+*.background: #2d2d2d
+
+! black
+*.color0: #2d2d2d
+*.color8: #747369
+
+! red
+*.color1: #f2777a
+*.color9: #f2777a
+
+! green 
+*.color2: #6df1d8
+*.color10: #6df1d8
+
+! yellow
+*.color3: #e68e35
+*.color11: #e68e35
+
+! blue
+*.color4: #556cc9
+*.color12: #556cc9
+
+! magenta
+*.color5: #dd517e
+*.color13: #dd517e
+
+! cyan
+*.color6: #7a98ee
+*.color14: #7a98ee
+
+! white
+*.color7: #d3d0c8
+*.color15: #f2f0ec
+
+
+URxvt*depth:	32
+URxvt.background: [70]#2d2d2d
+URxvt.font:	xft:FantasqueSansMono\ Nerd\ Font\ Mono:size=9:antialias=true:hinting=true:autohint=true
+URxvt.scrollBar:	false
+URxvt.letterSpace:	1
+URxvt.lineSpace: 0
+URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorBlink: true
+URxvt.cursorUnderline: false
+URxvt.saveline: 2048
+URxvt.scrollBar_right: false
+URxvt.urgentOnBell: false
+URxvt.iso14755: false
+URxvt.saveLines: 1000000
+URxvt.keysym.C-0x63: eval:selection_to_clipboard
+URxvt.keysym.C-0x76: eval:paste_clipboard
+URxvt.visualBell: false
+
+Xft.dpi: 287
+Xft.hinting: true
+Xft.rgba: none
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+
