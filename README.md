@@ -1,3 +1,3 @@
 # archrice
 
-## Am currently working on an installation and configuration script.
+Am currently working on an installation and configuration script.
