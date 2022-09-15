@@ -1,2 +1,2 @@
 #!/usr/bin/zsh
-feh --no-fehbg --bg-scale '/home/andrew/.config/wallpaper.png' 
+feh --no-fehbg --bg-scale "$HOME/.config/wallpaper.png"
