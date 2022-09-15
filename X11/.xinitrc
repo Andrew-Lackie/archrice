@@ -27,6 +27,11 @@ tme() {
   echo -e " $tme"
 }
 
+upg() {
+  upg="$(pacman -Qu | wc -l)"
+  echo -e " $upg"
+}
+
 # Battery Notification Function
 
 batt_notify() {
@@ -74,7 +79,7 @@ picom --experimental-backends -b &
 # Status Bar
 
 while true; do
-  xsetroot -name " $(batt) | $(dte) | $(tme)"
+  xsetroot -name " $(upg) | $(batt) | $(dte) | $(tme)"
   sleep 1m # updates every minute
 done &
 
