@@ -1,32 +1,55 @@
+"==========================
+"=  Basic Configurations  =
+"==========================
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+"=============================================================================
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'preservim/nerdtree'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'preservim/nerdcommenter'
-Plugin 'uiiaoo/java-syntax.vim'
-Plugin 'frazrepo/vim-rainbow' 
-Plugin 'ap/vim-css-color'  
-Plugin 'itchyny/lightline.vim'
-Plugin 'junegunn/fzf'
-Plugin 'mcchrish/nnn.vim'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'jiangmiao/auto-pairs'
-Plugin 'godlygeek/tabular'
-Plugin 'preservim/vim-markdown'
-Plugin 'itsvinayak/image.vim'
-Plugin 'vimwiki/vimwiki'
-Plugin 'vim-pandoc/vim-pandoc'
-Plugin 'vim-pandoc/vim-pandoc-syntax'
-Plugin 'iamcco/markdown-preview.nvim' 
-Plugin 'Rigellute/rigel'
-call vundle#end()            
+"=============
+"=  Plugins  =
+"=============
+
+call plug#begin()
+
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-sensible'
+Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf'
+Plug 'mcchrish/nnn.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'jiangmiao/auto-pairs'
+Plug 'godlygeek/tabular'
+Plug 'itsvinayak/image.vim'
+Plug 'Rigellute/rigel'
+
+" Development
+
+Plug 'preservim/nerdcommenter'
+Plug 'ap/vim-css-color'  
+Plug 'uiiaoo/java-syntax.vim'
+Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
+
+
+
+" VimWiki
+
+Plug 'vimwiki/vimwiki'
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'preservim/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+call plug#end()
+
+"=============================================================================
+
+"============================
+"  Advanced Configurations  =
+"============================  
+
 filetype plugin indent on  
 
 " Turn syntax highlighting on.
@@ -84,34 +107,53 @@ set t_ut=""
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
-"=== VimWiki ===  
+"=============================================================================
+
+"==============
+"=  Mappings  =
+"==============
+
+" Preview HTML file in firefox
+nnoremap <F5> :silent update<Bar>silent !firefox %:p &<CR>
+
+"=============================================================================
+
+"=============
+"=  VimWiki  =  
+"=============
+
 let g:vimwiki_list = [
-                 \{'path': '~/Documents/VimWiki/', 'syntax': 'markdown', 'ext': '.md'},
-                 \{'path': '~/Documents/VimWiki/academia', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/academia/computer-science', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/academia/mathematics', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/academia/physics', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/academia/russian', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/finance', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/finance/algo-books', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/finance/algo-lib', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/finance/definitions', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/hacking', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/hacking/hacking-tools', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/hacking/hacking-lib', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/ml', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/programming', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/programming/bash', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/programming/c-cpp', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/programming/java', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/programming/javascript', 'syntax': 'markdown', 'ext': '.md'},
-                  \{'path': '~/Documents/VimWiki/programming/python', 'syntax': 'markdown', 'ext': '.md'}]
+                 \{'path': '~/Notes/', 'syntax': 'markdown', 'ext': '.md'},
+                 \{'path': '~/Notes/academia', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/academia/computer-science', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/academia/mathematics', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/academia/physics', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/academia/russian', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/finance', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/finance/algo-books', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/finance/algo-lib', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/finance/definitions', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/hacking', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/hacking/hacking-tools', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/hacking/hacking-lib', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/ml', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/programming', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/programming/bash', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/programming/c-cpp', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/programming/java', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/programming/javascript', 'syntax': 'markdown', 'ext': '.md'},
+                  \{'path': '~/Notes/programming/python', 'syntax': 'markdown', 'ext': '.md'}]
 
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', 'mdown': 'markdown'}
 let g:vimwiki_markdown_link_ext = 1
 let g:taskwiki_markup_syntax = 'markdown'
 
-"=== Vim-Markdown ===
+"=============================================================================
+
+"==================
+"=  Vim-Markdown  =
+"==================
+
 let g:markdown_folding = 2 
 set conceallevel=2
 let g:vim_markdown_conceal = 2 
@@ -119,8 +161,10 @@ let g:vim_markdown_conceal_code_blocks = 2
 let g:vim_markdown_fenced_languages = ['html', 'python=py', 'bash=sh', 'css', 'javascript', 'js=javascript', 'json=javascript', 'sass', 'xml', 'jsx=javascript.jsx',]
 
 "=== Markdown-Preview ===
+
 let g:mkdp_browser = 'firefox'
 let g:mkdp_command_for_global = 1
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 
+"=============================================================================

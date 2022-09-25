@@ -1,11 +1,36 @@
 !! Colorscheme
 
+! Colors taken from Polybar
+
+!background = #0d0f31
+!foreground = #f8f8f3 
+!sep = #3F5360
+
+!white = #FFFFFF
+!black = #000000
+!red = #ff5555
+!pink = #fb94ff
+!purple = #c694ff
+!blue = #1c8db2
+!cyan = #00ffff
+!teal = #00B19F
+!green = #50fa7b
+!lime = #B9C244
+!yellow = #f08e48
+!amber = #FBC02D
+!orange = #ffb86c
+!brown = #AC8476
+!indigo = #6C77BB
+!gray = #9E9E9E
+!blue-gray = #44475a
+
+
 ! special 
 *.foreground: #d3d0c8
 *.background: #2d2d2d
 
 ! black
-*.color0: #2d2d2d
+*.color0: #1E1E2E
 *.color8: #747369
 
 ! red
@@ -25,8 +50,8 @@
 *.color12: #556cc9
 
 ! magenta
-*.color5: #dd517e
-*.color13: #dd517e
+*.color5: #FF79c6
+*.color13: #FF79c6
 
 ! cyan
 *.color6: #7a98ee

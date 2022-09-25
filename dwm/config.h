@@ -12,13 +12,13 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "FantasqueSansMono Nerd Font Mono:size=10" };
 static const char dmenufont[]       = "FantasqueSansMono Nerd Font Mono:size=10";
-static const char col_black0[]			= "#2d2d2d";
+static const char col_black0[]			= "#1E1E2E";
 static const char col_black8[]			= "#747369";
 static const char col_red[]				  = "#f2777a";
 static const char col_green[]				= "#6df1d8";
 static const char col_yellow[]			= "#e68e35";
 static const char col_blue[]				= "#556cc9";
-static const char col_magenta[]			= "#dd517e";
+static const char col_magenta[]			= "#FF79C6";
 static const char col_cyan[]				= "#7a98ee";
 static const char col_white7[]			= "#d3d0c8";
 static const char col_white15[]			= "#f2f0ec";
