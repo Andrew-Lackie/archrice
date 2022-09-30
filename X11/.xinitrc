@@ -33,6 +33,19 @@ upg() {
   echo -e " $upg"
 }
 
+# VPN IP Address
+
+vpn() {
+ if [ "1" == $(ifconfig | grep tun0 | wc -l) ];
+  then
+   vpn="$(ip a | grep "tun0" | grep -E -o "([0-9]{1,3}[\.]){3}[0-9]{1,3}")"
+   echo " tun0 $vpn"
+ else
+    vpn="$(curl https://ifconfig.me ; echo)"
+   echo " wlan0 $vpn"
+ fi
+}
+
 # Battery Notification Function
 
 batt_notify() {
@@ -42,7 +55,6 @@ batt_notify() {
   HALF_BATT=50                                                                                                                                                                    
   LOW_BATT=25                                                                                                                                                                     
   CRITICAL_BATT=10                                                                                                                                                                
-
   if [ $(cat /sys/class/power_supply/BAT0/capacity) -eq $HALF_BATT ]                                                                                                            
   then                                                                                                                                                                          
     exec $(notify-send --urgency=normal " Battery: $(cat /sys/class/power_supply/BAT0/capacity)%" -t 5000)                                                                   
@@ -80,7 +92,7 @@ picom --experimental-backends -b &
 # Status Bar
 
 while true; do
-  xsetroot -name " $(upg) | $(batt) | $(dte) | $(tme)"
+  xsetroot -name " $(vpn) | $(upg) | $(batt) | $(dte) | $(tme)"
   sleep 1m # updates every minute
 done &
 
