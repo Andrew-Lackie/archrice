@@ -1,8 +1,7 @@
 "==========================
 "=  Basic Configurations  =
 "==========================
-
-set nocompatible              " be iMproved, required
+set nocompatible
 filetype off                  " required
 
 "=============================================================================
@@ -27,12 +26,11 @@ Plug 'Rigellute/rigel'
 " Development
 
 Plug 'preservim/nerdcommenter'
-Plug 'ap/vim-css-color'  
+Plug 'ap/vim-css-color'
 Plug 'uiiaoo/java-syntax.vim'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
-
-
+Plug 'dense-analysis/ale'
 
 " VimWiki
 
@@ -48,14 +46,14 @@ call plug#end()
 
 "============================
 "  Advanced Configurations  =
-"============================  
+"============================
 
-filetype plugin indent on  
+filetype plugin indent on
 
 " Turn syntax highlighting on.
 syntax on
 " Add numbers to each line on the left-hand side.
-set number
+set number relativenumber
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 " Highlight cursor line underneath the cursor vertically.
@@ -66,7 +64,7 @@ set nobackup
 set laststatus=2
 
 let g:rigel_lightline = 1
-let g:lightline = { 'colorscheme': 'Tomorrow_Night_Eighties' }
+let g:lightline = { 'colorscheme': 'srcery_drk' }
 
 " Lightline
 set incsearch
@@ -99,13 +97,44 @@ vmap <S-Tab> <
 " Color Scheme
 packadd! dracula
 syntax enable
-colorscheme default
 set background=light
-set t_ut=""
+set t_ut="256"
+set hlsearch
+hi Search ctermbg=green
+hi Search ctermfg=black
+hi Error ctermbg=red
+hi Error ctermfg=black
+hi ALEError ctermbg=red
+hi ALEError ctermfg=black
 
 " Cursor
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
+
+"=============================================================================
+
+"=================
+"=  Development  =
+"=================
+
+let g:ale_linters = {
+  \   'javascript': ['eslint'],
+  \}
+
+let g:ale_fixers = {
+  \   '*': ['remove_trailing_lines', 'trim_whitespace'],
+  \   'python': ['black'],
+  \   'javascript': ['prettier-eslint'],
+  \}
+
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fix_on_save = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+let g:ale_fix_on_save = 1
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '>'
 
 "=============================================================================
 
@@ -115,11 +144,13 @@ let &t_EI = "\e[2 q"
 
 " Preview HTML file in firefox
 nnoremap <F5> :silent update<Bar>silent !firefox %:p &<CR>
+nnoremap <F12> :set hlsearch!<CR>
+nnoremap <F2> :ALEToggle<CR>
 
 "=============================================================================
 
 "=============
-"=  VimWiki  =  
+"=  VimWiki  =
 "=============
 
 let g:vimwiki_list = [
@@ -154,10 +185,10 @@ let g:taskwiki_markup_syntax = 'markdown'
 "=  Vim-Markdown  =
 "==================
 
-let g:markdown_folding = 2 
+let g:markdown_folding = 2
 set conceallevel=2
-let g:vim_markdown_conceal = 2 
-let g:vim_markdown_conceal_code_blocks = 2 
+let g:vim_markdown_conceal = 2
+let g:vim_markdown_conceal_code_blocks = 2
 let g:vim_markdown_fenced_languages = ['html', 'python=py', 'bash=sh', 'css', 'javascript', 'js=javascript', 'json=javascript', 'sass', 'xml', 'jsx=javascript.jsx',]
 
 "=== Markdown-Preview ===
@@ -166,5 +197,6 @@ let g:mkdp_browser = 'firefox'
 let g:mkdp_command_for_global = 1
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
+let g:ale_lint_on_enter = 0
 
 "=============================================================================

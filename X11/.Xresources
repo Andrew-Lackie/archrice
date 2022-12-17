@@ -34,8 +34,8 @@
 *.color8: #747369
 
 ! red
-*.color1: #f2777a
-*.color9: #f2777a
+*.color1: #ff5555
+*.color9: #ff5555
 
 ! green 
 *.color2: #6df1d8
@@ -62,7 +62,6 @@
 *.color15: #f2f0ec
 
 
-URxvt*depth:	32
 URxvt.background: [70]#2d2d2d
 URxvt.font:	xft:FantasqueSansMono\ Nerd\ Font\ Mono:size=9:antialias=true:hinting=true:autohint=true
 URxvt.scrollBar:	false

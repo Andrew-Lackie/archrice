@@ -11,13 +11,16 @@ export ALPHAVANTAGE_API_KEY=T3JH1UGZJVPS51XK
 export ZIPLINE_ROOT=~/Trading/tradinglib/ML_Trading_Lib/data/zipline
 
 #PATH
-export PATH=/home/andrew/.local/share/gem/ruby/3.0.0/bin:$PATH 
+export PATH=/home/andrew/.local/share/gem/ruby/3.0.0/bin:$PATH
 export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="/home/andrew/miniconda/bin:$PATH"
 export PATH="/home/andrew/miniconda3/bin:$PATH"
+export PATH="/home/andrew/.local/bin:$PATH"
+export PATH="/home/andrew/.local/bin/scripts:$PATH"
 # NNN Configurations
 export NNN_FIFO='/tmp/nnn.fifo'
 export NNN_PLUG='f:finder;d:diffs;t:nmount;v:imgview;s:-!sudo -E vim $nnn*;p:preview-tabbed'
+export TERM='xterm-256color'
 
 BLK="04" CHR="04" DIR="04" EXE="00" REG="00" HARDLINK="00" SYMLINK="06" MISSING="00" ORPHAN="01" FIFO="0F" SOCK="0F" OTHER="02"
 export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SOCK$OTHER"
@@ -31,11 +34,11 @@ export NNN_FCOLORS="$BLK$CHR$DIR$EXE$REG$HARDLINK$SYMLINK$MISSING$ORPHAN$FIFO$SO
 alias ls='colorls -l --sd'
 alias "ls -a"='colorls -lA --sd'
 
-# Plugins 
+# Plugins
 source ~/.config/zsh/powerlevel10k/powerlevel10k.zsh-theme
 source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh 
+source ~/.config/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.config/zsh/zsh-vim-mode/zsh-vim-mode.zsh
 
 # enable completion features
@@ -100,4 +103,3 @@ unset __conda_setup
 
 #neofetch
 fastfetch
- 
