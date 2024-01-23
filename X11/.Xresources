@@ -3,7 +3,7 @@
 ! Colors taken from Polybar
 
 !background = #0d0f31
-!foreground = #f8f8f3 
+!foreground = #f8f8f3
 !sep = #3F5360
 
 !white = #FFFFFF
@@ -24,48 +24,84 @@
 !gray = #9E9E9E
 !blue-gray = #44475a
 
-
-! special 
-*.foreground: #d3d0c8
-*.background: #2d2d2d
+! special
+*.foreground: #ebdbb2
+*.background: #282828
 
 ! black
-*.color0: #1E1E2E
-*.color8: #747369
+*.color0: #000000
+*.color8: #44475a
 
 ! red
 *.color1: #ff5555
-*.color9: #ff5555
+*.color9: #c694ff
 
-! green 
-*.color2: #6df1d8
-*.color10: #6df1d8
+! cyan
+*.color2: #00ffff
+*.color10: #00B19F
 
 ! yellow
-*.color3: #e68e35
-*.color11: #e68e35
+*.color3: #f08e48
+*.color11: #FBC02D
 
-! blue
-*.color4: #556cc9
-*.color12: #556cc9
+! purple
+*.color4: #c694ff
+*.color12: #6C77BB
 
 ! magenta
 *.color5: #FF79c6
 *.color13: #FF79c6
 
+! green
+*.color6: #50fa7b
+*.color14: #B9C244
+
+! orange
+*.color7: #ffb86c
+*.color15: #AC8476
+
+! special
+!*.foreground: #d3d0c8
+!*.background: #282a36
+
+! black
+!*.color0: #1E1E2E
+!*.color8: #747369
+
+! red
+!*.color1: #ff5555
+!*.color9: #ff5555
+
+! green
+!*.color2: #50fa7b
+!*.color10: #50fa7b
+
+! yellow
+!*.color3: #f1fa8c
+!*.color11: #f1fa8c
+
+! purple
+!*.color4: #bd93f9
+!*.color12: #bd93f9
+
+! magenta
+!*.color5: #FF79c6
+!*.color13: #FF79c6
+
 ! cyan
-*.color6: #7a98ee
-*.color14: #7a98ee
+!*.color6: #8be9fd
+!*.color14: #8be9fd
 
-! white
-*.color7: #d3d0c8
-*.color15: #f2f0ec
+! orange
+!*.color7: #ffb86c
+!*.color15: #ffb86c
 
+!----- URXVT -----!
 
-URxvt.background: [70]#2d2d2d
-URxvt.font:	xft:FantasqueSansMono\ Nerd\ Font\ Mono:size=9:antialias=true:hinting=true:autohint=true
+URxvt.background: [70]#282a36
+URxvt.font:	xft:FiraCode\ Nerd\ Font\ Mono:size=9:antialias=true:hinting=true:autohint=true
 URxvt.scrollBar:	false
-URxvt.letterSpace:	1
+URxvt.letterSpace:	-1
 URxvt.lineSpace: 0
 URxvt.geometry: 92x24
 URxvt.internalBorder: 24
@@ -80,9 +116,22 @@ URxvt.keysym.C-0x63: eval:selection_to_clipboard
 URxvt.keysym.C-0x76: eval:paste_clipboard
 URxvt.visualBell: false
 
-Xft.dpi: 287
+Xft.dpi: 250
 Xft.hinting: true
 Xft.rgba: none
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 
+!----- XTERM -----!
+! Use a truetype font and size.
+xterm*faceName:	FiraCode\ Nerd\ Font\ Mono:style=Regular:antialias=true:hinting=true:autohint=true
+XTerm.vt100.scaleHeight: 0.6
+xterm*faceSize: 9
+XTerm*selectToClipboard: true
+xterm*saveLines: 100000
+XTerm*VT100.Translations: #override \
+      Shift Ctrl<Key>V: insert-selection(CLIPBOARD) \n\
+      Shift Ctrl<Key>V: insert-selection(PRIMARY) \n\
+      Shift<Btn1Down>: select-start() \n\
+      Shift<Btn1Motion>: select-extend() \n\
+      Shift<Btn1Up>: select-end(CLIPBOARD) \n\

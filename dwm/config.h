@@ -10,26 +10,26 @@ static const unsigned int gappov    = 20;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "FantasqueSansMono Nerd Font Mono:size=10" };
-static const char dmenufont[]       = "FantasqueSansMono Nerd Font Mono:size=10";
+static const char *fonts[]          = { "FuraMono NFM:style=Regular:size=10" };
+static const char dmenufont[]       = "FuraMono NFM:style=Regular:size=10";
 static const char col_black0[]			= "#1E1E2E";
 static const char col_black8[]			= "#747369";
 static const char col_red[]				  = "#f2777a";
-static const char col_green[]				= "#6df1d8";
-static const char col_yellow[]			= "#e68e35";
-static const char col_blue[]				= "#556cc9";
+static const char col_green[]				= "#50fa7b";
+static const char col_yellow[]			= "#f08e48";
+static const char col_blue[]				= "#bd93f9";
 static const char col_magenta[]			= "#FF79C6";
-static const char col_cyan[]				= "#7a98ee";
+static const char col_cyan[]				= "#8be9fd";
 static const char col_white7[]			= "#d3d0c8";
 static const char col_white15[]			= "#f2f0ec";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_white7, col_black0, col_black0 },
-	[SchemeSel]  = { col_white7, col_magenta,  col_magenta  },
+	[SchemeSel]  = { col_white7, col_yellow,  col_yellow  },
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "ﬦ", "שׁ", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -155,4 +155,3 @@ static const Button buttons[] = {
 	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
 	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
 };
-

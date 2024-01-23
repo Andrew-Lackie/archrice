@@ -15,13 +15,15 @@ call plug#begin()
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-sensible'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'mcchrish/nnn.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'godlygeek/tabular'
 Plug 'itsvinayak/image.vim'
 Plug 'Rigellute/rigel'
+Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Development
 
@@ -90,6 +92,9 @@ set wildmode=list:longest
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+" Keep undo history in vim/undodir
+set undofile
+set undodir=~/archrice/vim/undodir
 
 vmap <Tab> >
 vmap <S-Tab> <
@@ -119,6 +124,7 @@ let &t_EI = "\e[2 q"
 
 let g:ale_linters = {
   \   'javascript': ['eslint'],
+  \   'c': ['clang']
   \}
 
 let g:ale_fixers = {
@@ -126,6 +132,8 @@ let g:ale_fixers = {
   \   'python': ['black'],
   \   'javascript': ['prettier-eslint'],
   \}
+
+let $FZF_DEFAULT_COMMAND='find . \( -name node_modules -o -name .got \) -prune -o -print'
 
 let g:airline#extensions#ale#enabled = 1
 let g:ale_fix_on_save = 1
@@ -135,6 +143,10 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '>>'
 let g:ale_sign_warning = '>'
+
+"let g:ale_c_clang_options="-I./Projects/c/math/include/"
+let g:ale_c_clang_options="-I./Projects/c/baselib/include/"
+"let g:ale_c_clang_options="-I./Projects/c/games/sdl2_game_engine/include/"
 
 "=============================================================================
 
@@ -146,6 +158,10 @@ let g:ale_sign_warning = '>'
 nnoremap <F5> :silent update<Bar>silent !firefox %:p &<CR>
 nnoremap <F12> :set hlsearch!<CR>
 nnoremap <F2> :ALEToggle<CR>
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+nnoremap <F3> :NERDTreeToggle<CR>
 
 "=============================================================================
 
